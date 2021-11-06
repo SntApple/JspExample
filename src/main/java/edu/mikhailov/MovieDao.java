@@ -85,12 +85,12 @@ public class MovieDao {
                 "FROM movie b" +
                 "JOIN info i ON b.id = i.book_id";
 
-        System.out.println(conn == null);
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            System.out.println("Where");
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-
+            System.out.println("is");
             ResultSet resultSet = statement.executeQuery();
-
+            System.out.println("Exception");
             while (resultSet.next()) {
                 Movie movie = new Movie(resultSet.getInt("id"), resultSet.getString("title"),
                         resultSet.getString("description"), resultSet.getInt("year"));

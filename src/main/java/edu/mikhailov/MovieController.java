@@ -37,11 +37,11 @@ public class MovieController extends HttpServlet {
         if (action.equals(DELETE)) {
             int id = getId(request);
             movieDao.delete(id);
-            response.sendRedirect("books");
+            response.sendRedirect("movies");
         } else if (action.equals(CREATE) || action.equals(UPDATE)){
             final Movie movie = CREATE.equals(action) ? new Movie("", "", 1) : movieDao.get(getId(request));
             request.setAttribute("movie", movie);
-            request.getRequestDispatcher("/movies.jsp").forward(request, response);
+            request.getRequestDispatcher("/movieForm.jsp").forward(request, response);
         } else {
             request.setAttribute("movies", movieDao.findAll());
             request.getRequestDispatcher("/movies.jsp").forward(request, response);
