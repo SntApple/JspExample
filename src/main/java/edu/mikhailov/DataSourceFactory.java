@@ -14,7 +14,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class DataSourceFactory {
     private static final Logger LOGGER = getLogger(DataSourceFactory.class);
-    private static final String RESOURCE_PATH = "./src/java/resources/database/mysql.properties";
+    private static final String RESOURCE_PATH = "./src/main/resources/database/mysql.properties";
     private static Connection connection = null;
 
     private DataSourceFactory() {
