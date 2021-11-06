@@ -81,9 +81,7 @@ public class MovieDao {
 
     public List<Movie> findAll() {
         final List<Movie> movies = new ArrayList<>();
-        final String sql = "SELECT id, title, description, year" +
-                "FROM movie" +
-                "JOIN info ON movie.id = info.movie_id";
+        final String sql = "SELECT id, title, description, year FROM movie b JOIN info i ON b.id = i.movie_id";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
@@ -102,10 +100,7 @@ public class MovieDao {
     public Movie get (int id) {
         Movie movie = null;
 
-        final String sql = "SELECT id, title, description, year" +
-                "FROM movie b" +
-                "JOIN info i ON b.id = i.movie_id" +
-                "WHERE b.id = ?";
+        final String sql = "SELECT id, title, description, year FROM movie b JOIN info i ON b.id = i.movie_id WHERE b.id = ?";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 
