@@ -13,7 +13,7 @@
 </head>
 <body>
 <section>
-    <a href="movies?action=create">Add book</a>
+    <a href="movies?action=create">Add Movie</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>

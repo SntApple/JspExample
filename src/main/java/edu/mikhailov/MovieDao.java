@@ -21,8 +21,8 @@ public class MovieDao {
             conn.setAutoCommit(false);
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             if (movie.isNew()) {
-                final String insertMovieQuery = "INSERT INTO book(title) VALUES (?)";
-                final String insertInfoQuery = "INSERT INTO info(book_id, description, year) VALUES (?, ?, ?)";
+                final String insertMovieQuery = "INSERT INTO movie(title) VALUES (?)";
+                final String insertInfoQuery = "INSERT INTO info(movie_id, description, year) VALUES (?, ?, ?)";
 
                 try (PreparedStatement insertMovieStm = conn.prepareStatement(insertMovieQuery, Statement.RETURN_GENERATED_KEYS);
                 PreparedStatement insertInfoStm = conn.prepareStatement(insertInfoQuery)) {
@@ -83,7 +83,7 @@ public class MovieDao {
         final List<Movie> movies = new ArrayList<>();
         final String sql = "SELECT id, title, description, year" +
                 "FROM movie b" +
-                "JOIN info i ON b.id = i.book_id";
+                "JOIN info i ON b.id = i.movie_id";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             System.out.println("Where");
@@ -107,7 +107,7 @@ public class MovieDao {
 
         final String sql = "SELECT id, title, description, year" +
                 "FROM movie b" +
-                "JOIN info i ON b.id = i.book_id" +
+                "JOIN info i ON b.id = i.movie_id" +
                 "WHERE b.id = ?";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);

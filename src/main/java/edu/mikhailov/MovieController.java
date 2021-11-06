@@ -58,7 +58,7 @@ public class MovieController extends HttpServlet {
 
         LOGGER.info(movie.isNew() ? "Create {}" : "Update {}", movie);
         movieDao.save(movie);
-        response.sendRedirect("books");
+        response.sendRedirect("movies");
     }
 
     private int getId(HttpServletRequest request) {

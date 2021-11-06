@@ -16,7 +16,7 @@
 </head>
 <body>
 <section>
-    <h2>${param.action == 'create' ? 'Add book' : 'Edit book'}</h2>
+    <h2>${param.action == 'create' ? 'Add movie' : 'Edit movie'}</h2>
     <jsp:useBean id="movie" type="edu.mikhailov.Movie" scope="request"/>
     <form method="post" action="movies">
         <input type="hidden" name="id" value="${movie.id}">
