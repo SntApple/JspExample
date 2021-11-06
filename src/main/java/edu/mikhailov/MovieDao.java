@@ -82,7 +82,7 @@ public class MovieDao {
     public List<Movie> findAll() {
         final List<Movie> movies = new ArrayList<>();
         final String sql = "SELECT id, title, description, year" +
-                "FROM MOVIE b" +
+                "FROM movie b" +
                 "JOIN info i ON b.id = i.book_id";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {

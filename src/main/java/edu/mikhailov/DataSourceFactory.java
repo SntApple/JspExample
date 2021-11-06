@@ -14,7 +14,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class DataSourceFactory {
     private static final Logger LOGGER = getLogger(DataSourceFactory.class);
-    private static final String RESOURCE_PATH = "./src/java/resources";
+    private static final String RESOURCE_PATH = "./src/java/resources/database/mysql.properties";
     private static Connection connection = null;
 
     private DataSourceFactory() {
@@ -23,7 +23,7 @@ public class DataSourceFactory {
     public static Connection getConnection() {
         if (connection == null) {
             try (FileInputStream fileInputStream = new FileInputStream(RESOURCE_PATH)) {
-                Properties prop =new Properties();
+                Properties prop = new Properties();
                 prop.load(fileInputStream);
                 Class.forName(prop.getProperty("driver"));
                 connection = DriverManager.getConnection(prop.getProperty("database.url"),
