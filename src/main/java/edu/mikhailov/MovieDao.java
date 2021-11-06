@@ -82,15 +82,12 @@ public class MovieDao {
     public List<Movie> findAll() {
         final List<Movie> movies = new ArrayList<>();
         final String sql = "SELECT id, title, description, year" +
-                "FROM movie b" +
-                "JOIN info i ON b.id = i.movie_id";
+                "FROM movie" +
+                "JOIN info ON movie.id = info.movie_id";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            System.out.println("Where");
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-            System.out.println("is");
             ResultSet resultSet = statement.executeQuery();
-            System.out.println("Exception");
             while (resultSet.next()) {
                 Movie movie = new Movie(resultSet.getInt("id"), resultSet.getString("title"),
                         resultSet.getString("description"), resultSet.getInt("year"));

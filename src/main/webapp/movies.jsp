@@ -25,7 +25,6 @@
             <th></th>
         </tr>
         </thead>
-        <jsp:useBean id="movies" scope="request" type="java.util.List"/>
         <c:forEach var="movie" items="${movies}">
             <tr>
                 <td>${movie.title}</td>
