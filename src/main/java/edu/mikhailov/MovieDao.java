@@ -85,6 +85,7 @@ public class MovieDao {
                 "FROM movie b" +
                 "JOIN info i ON b.id = i.book_id";
 
+        System.out.println(conn == null);
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 
