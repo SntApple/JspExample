@@ -13,6 +13,6 @@
          </servlet>
          <servlet-mapping>
             <servlet-name>MovieController</servlet-name>
-            <url-pattern>/movie</url-pattern>
+            <url-pattern>/movies</url-pattern>
          </servlet-mapping>
 </web-app>
